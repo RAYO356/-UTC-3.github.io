@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Estilos.css" />
+</head>
+
+<nav>
+     <section class="nav">
+     <img src="Imagenes/encabezado (2).png" alt="Logo UTC" class="nav-logo">
+
+     <div class="bloque-links">
+    <a href="index.html">Inicio</a>
+    <a href="CONVIVIR.html">CONVIVIR</a>
+    <a href="PROMINE.htmL">PROMINE</a>
+</div>
+
+    </section>
+</nav>
+
+<body id="inicio">
+
+<header>
+
+<div class="search-container">
+    <div class="search-wrapper" id="searchWrapper">
+        <input type="text" id="searchBar" placeholder="Buscar en el sitio..." class="search-input" onkeypress="verificarEnter(event)">
+        <button type="button" class="search-button" onclick="alternarBarra()">🔍</button>
+    </div>
+    <div id="searchStatus" class="search-status"></div>
+</div>
+
+    <h1>Programas</h1> 
+</header>
+
+<section>
+    <h2>Funciones de los programas en FHIS</h2>
+    <p>Los programas del FHIS están diseñados para mejorar las condiciones de vida de los grupos sociales marginados en Honduras. 
+    Aquí hay un  resumen de las funciones de los programas en FHIS:
+</p>
+
+<ol>
+  <li> Contribuir a la reducción de la pobreza: </li>
+  <p>Los programas se enfocan en áreas como educación, salud, electrificación básica, caminos, proyectos sociales, desarrollo de capital humano, entre otros, mediante la inversión en obras de infraestructura y desarrollo social.</p>
+  <li>Fortalecer la capacidad de gestión:  </li>
+  <p>Se busca fortalecer la capacidad de gestión de las municipalidades y sus comunidades a través de la ejecución de proyectos sostenibles para contribuir al proceso de la descentralización de la inversión pública.</p>
+  <li>Promover el desarrollo local sostenible:</li>
+  <p>FHIS promueve el desarrollo local sostenible, participativo e incluyente, en alianza con gobiernos locales y socios estratégicos, para mejorar la claridad de vida de la población más pobre y vulnerable de Honduras. 
+</p>
+</ol>
+</section>
+
+<section>
+<p>Estos programas son parte de un esfuerzo más amplio para mejorar la calidad de vida de los grupos sociales marginados en Honduras, utilizando recursos y financiamientos para aumentar su productividad, niveles de empleo e ingresos, y satisfacer sus necesidades básicas.
+Entre estos grupos se encuentran: 
+PROMINE(PROGRAMA DE MEJORA DE LA INFRAESTRUCTURA ESCOLAR)
+CONVIVIR(PROGRAMA DE CONVIVENCIA Y ESPACIOS SEGUROS PARA JÓVENES EN HONDURAS)</p>
+<p>Entre estos grupos se encuentran: </p>
+<ul>
+
+<li><h3>PROMINE(Programa de Mejora de la Infraestructura Escolar)</h3></li>
+<li><h3>CONVIVIR(Programa de convivencia y Espacios Seguros Para Jovenes en Honduras)</h3></li>
+
+</ul>
+
+</section>
+
+</body>
+
+<script>
+// 1. Función para abrir y cerrar
+function alternarBarra() {
+    const wrapper = document.getElementById('searchWrapper');
+    const input = document.getElementById('searchBar');
+    
+    wrapper.classList.toggle('active');
+    
+    if (wrapper.classList.contains('active')) {
+        input.focus();
+    }
+}
+
+// 2. Función para detectar la tecla Enter
+function verificarEnter(event) {
+    if (event.key === 'Enter') {
+        const texto = event.target.value.trim();
+        if (texto.length > 0) {
+            buscarAhora(texto);
+        }
+    }
+}
+
+// 3. La lógica de búsqueda
+function buscarAhora(texto) {
+    const statusLabel = document.getElementById('searchStatus');
+    
+    // Limpiar resaltados anteriores
+    document.querySelectorAll('.resaltado').forEach(span => {
+        span.outerHTML = span.innerText;
+    });
+
+    const regex = new RegExp(`(${texto})`, 'gi');
+    let encontrado = false;
+
+    // Función interna para buscar
+    function recorrer(nodo) {
+        if (nodo.nodeType === 3) {
+            if (nodo.nodeValue.match(regex)) {
+                const span = document.createElement('span');
+                span.innerHTML = nodo.nodeValue.replace(regex, '<span class="resaltado">$1</span>');
+                nodo.parentNode.replaceChild(span, nodo);
+                encontrado = true;
+            }
+        } else if (nodo.nodeType === 1 && !/(script|style|nav|header)/i.test(nodo.tagName)) {
+            for (let i = 0; i < nodo.childNodes.length; i++) {
+                recorrer(nodo.childNodes[i]);
+            }
+        }
+    }
+
+    recorrer(document.body);
+
+    if (encontrado) {
+        const primero = document.querySelector('.resaltado');
+        primero.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        statusLabel.style.display = 'none';
+    } else {
+        statusLabel.innerText = `"${texto}" no se encuentra en esta página.`;
+        statusLabel.style.display = 'block';
+        setTimeout(() => { statusLabel.style.display = 'none'; }, 1000);
+    }
+}
+</script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const loader = document.querySelector('.loader-css');
+        const barra = document.querySelector('.barra-carga');
+        const porcentaje = document.querySelector('.porcentaje');
+        let progreso = 0;
+
+        // Función para actualizar visualmente
+        function actualizarCarga(valor) {
+            progreso = valor;
+            barra.style.width = progreso + '%';
+            porcentaje.style.setProperty('--num', progreso);
+        }
+
+        // 1. Simulación inicial de carga (para que el usuario vea movimiento)
+        let intervaloInicial = setInterval(() => {
+            if (progreso < 85) { // Sube rápido hasta 85%
+                actualizarCarga(progreso + 1);
+            }
+        }, 30); // Velocidad del conteo inicial
+
+        // 2. El evento REAL: Cuando TODO (imágenes, mapas, scripts) terminó de cargar
+        window.addEventListener('load', function() {
+            clearInterval(intervaloInicial); // Detenemos la simulación
+            actualizarCarga(100); // Saltamos al 100%
+
+            // Esperamos un momento para que el usuario vea el "100%" y ocultamos
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+            }, 600);
+        });
+    });
+</script>
+
+<div class="loader-css">
+    <div class="barra-carga"></div>
+    <div class="centro-loader"> <div class="punto"></div>
+        <div class="porcentaje"></div>
+    </div>
+</div>
+
+<footer>
+
+    <a href="#inicio" id="btn-volver-arriba">
+↑
+</a>
+
+<section>
+        <div class="info-bar">
+    <div class="info-item">
+        <div class="info-icon">📍</div> <div class="info-text">
+            <h3>¿Dónde estamos?</h3>
+            <p>Centro Cívico Gubernamental José Cecilio Del Valle, Torre II</p>
+        </div>
+    </div>
+
+    <div class="info-item">
+        <div class="info-icon">📞</div>
+        <div class="info-text">
+            <h3>Llámenos</h3>
+            <p>(504) 2242-8131</p>
+        </div>
+    </div>
+
+    <div class="info-item">
+        <div class="info-icon">🕒</div>
+        <div class="info-text">
+            <h3>Horario</h3>
+            <p>Lun-Vie: 9:00am - 5:00pm</p>
+        </div>
+    </div>
+</div>
+
+</section>
+
+</footer>
+
+</html>
+

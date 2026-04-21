@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Estilos.css" />
+</head>
+
+    <nav>
+         <section class="nav">
+         <img src="Imagenes/encabezado (2).png" alt="Logo UTC" class="nav-logo">
+
+         <div class="bloque-links">
+    <a href="index.html">Inicio</a>
+    <a href="Programas.html">Programas</a>
+    <a href="Fortalecimiento Institucional.html">Fortalecimiento Institucional</a>
+    <a href="Fortalecimiento Municipal.html">Fortalecimiento Municipal</a>
+    <a href="Fortalecimiento Comunitario.html">Fortalecimiento Comunitario</a>
+</div>
+
+    </nav>
+</section>
+<body id="inicio">
+
+
+<div class="loader-css">
+    <div class="barra-carga"></div>
+    <div class="centro-loader"> <div class="punto"></div>
+        <div class="porcentaje"></div>
+    </div>
+
+</div>
+
+
+<header>
+
+    <div class="search-container">
+    <div class="search-wrapper" id="searchWrapper">
+        <input type="text" id="searchBar" placeholder="Buscar en el sitio..." class="search-input" onkeypress="verificarEnter(event)">
+        <button type="button" class="search-button" onclick="alternarBarra()">🔍</button>
+    </div>
+    <div id="searchStatus" class="search-status"></div>
+</div>
+
+    <h1>Gestión de Formatos Administrativos</h1>
+</header>
+
+<SECtion>
+    <p>visualización y descarga de documentos oficiales. Optimice la gestión institucional utilizando los formatos actualizados del FHIS.</p>
+</SECtion>
+
+<h2>PDF</h2>
+
+<div class="card-pdf-institucional">
+    <div class="card-header-pdf">
+        <img src="Imagenes/Visualizacion-pdf/Ausencia-de-salida.png" alt="Portada Documento">
+        <div class="badge-pdf">PDF</div>
+    </div>
+
+    <div class="card-body-pdf">
+        <span class="meta-pdf">440 KB • 2026</span>
+       <h3>Ausencia Laboral FHIS 2026</h3>
+        <p>Documento para reportar la inasistencia de un empleado a su jornada laboral, permitiendo el registro y control administrativo de su ausencia.</p>
+    </div>
+    <div class="card-footer-pdf">
+        <a href="ARCHIVOS/FORMATOS FHIS/ausencia_laboral_fhis_2026_.pdf" class="btn-abrir-pdf">
+             Ver Documento
+        </a>
+    </div>
+</div>
+
+<div class="card-pdf-institucional">
+    <div class="card-header-pdf">
+        <img src="Imagenes/Visualizacion-pdf/Formato_de_gira.png" alt="Portada Documento">
+        <div class="badge-pdf">PDF</div>
+    </div>
+
+    <div class="card-body-pdf">
+        <span class="meta-pdf">449 KB • 2026</span>
+       <h3>Formato de Gira</h3>
+        <p>Documento que registra salidas de personal a campo, detallando ruta, objetivos y duración para su respectivo control administrativo.</p>
+    </div>
+    <div class="card-footer-pdf">
+        <a href="ARCHIVOS/FORMATOS FHIS/formato_de_gira_fhis.pdf" class="btn-abrir-pdf">
+             Ver Documento
+        </a>
+    </div>
+</div>
+
+<div class="card-pdf-institucional">
+    <div class="card-header-pdf">
+        <img src="Imagenes/Visualizacion-pdf/Pase_de_salida.png" alt="Portada Documento">
+        <div class="badge-pdf">PDF</div>
+    </div>
+
+    <div class="card-body-pdf">
+        <span class="meta-pdf">309 KB • 2026</span>
+       <h3>Pase de Salida</h3>
+        <p>Documento que autoriza el retiro temporal de un empleado de su sede, registrando el motivo, la hora y el tiempo estimado de su retorno.</p>
+    </div>
+    <div class="card-footer-pdf">
+        <a href="ARCHIVOS/FORMATOS FHIS/Pase_de_Salida_FHIS_.pdf" class="btn-abrir-pdf">
+             Ver Documento
+        </a>
+    </div>
+</div>
+
+<div class="card-pdf-institucional">
+    <div class="card-header-pdf">
+        <img src="Imagenes/Visualizacion-pdf/Solicitud_de_Vacaciones.png" alt="Portada Documento">
+        <div class="badge-pdf">PDF</div>
+    </div>
+
+    <div class="card-body-pdf">
+        <span class="meta-pdf">458 KB• 2026</span>
+       <h3>Solicitud de Vacaciones</h3>
+        <p>Documento que formaliza el derecho al descanso anual del empleado, registrando el periodo exacto de ausencia y la fecha de su retorno.</p>
+    </div>
+    <div class="card-footer-pdf">
+        <a href="ARCHIVOS/FORMATOS FHIS/solicitud_de_vacaciones_fhis.pdf" class="btn-abrir-pdf">
+             Ver Documento
+        </a>
+    </div>
+</div>
+
+<div id="pdfModal" class="ventana-flotante-overlay">
+    <div class="ventana-flotante-contenido">
+        <div class="ventana-header">
+            <span class="cerrar-ventana">&times;</span>
+            <div class="acciones-header">
+                <a id="btnDescargar" href="#" download class="btn-descargar-flotante">Descargar</a>
+            </div>
+        </div>
+        <div class="cuerpo-visor">
+            <iframe id="visorPdf" src="" frameborder="0"></iframe>
+        </div>
+    </div>
+</div>
+
+<H2>Documentos Editables</H2>
+
+<div id="modalWord" class="overlay-word-editable">
+    <div class="contenido-word-editable">
+        <div class="header-word-editable">
+            <span class="cerrar-word" id="btnCerrarWord">&times;</span>
+            <div class="acciones-header">
+                <a id="descargaWordLink" href="#" download class="btn-descargar-word">Descargar formato Editable</a>
+            </div>
+        </div>
+        <div class="cuerpo-visor">
+            <iframe id="visorWordIframe" src="" frameborder="0" style="width: 100%; height: 100%;"></iframe>
+        </div>
+    </div>
+</div>
+
+<div class="card-word-editable">
+    <div class="card-header-word">
+        <img src="ARCHIVOS/FORMATOS FHIS/Memo/FORMATO DE MEMO.png" alt="Portada">
+        <div class="badge-word">WORD</div>
+    </div>
+    <div class="card-body-word">
+        <span class="meta-word">2,182 KB • 2026</span>
+        <h3>Formato de Memorándum</h3>
+        <p>Previsualice en PDF y descargue en Word.</p>
+    </div>
+   <div class="card-footer-word">
+    <a href="ARCHIVOS/FORMATOS FHIS/Memo/FORMATO DE MEMO ACTUALIZADO.docx.pdf" 
+       data-word="./ARCHIVOS/FORMATOS FHIS/Memo/FORMATO DE MEMO ACTUALIZADO.docx" 
+       class="btn-abrir-word">
+       Ver Documento
+    </a>
+</div>
+</div>
+
+<H2>LOGOS UTC</H2>
+
+<div class="card-img-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 1.png" alt="Portada">
+        <div class="badge-img">IMG</div>
+    </div>
+    
+    <div class="card-body-img">
+        <span class="meta-img">PNG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial UTC</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato PNG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 1.png" class="btn-abrir-img">
+             Ver y Descargar Imagen
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="card-img-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 2.png" alt="Portada">
+        <div class="badge-img">IMG</div>
+    </div>
+    
+    <div class="card-body-img">
+        <span class="meta-img">PNG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial UTC</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato PNG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 2.png" class="btn-abrir-img">
+             Ver y Descargar Imagen
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="card-img-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 3.png" alt="Portada">
+        <div class="badge-img">IMG</div>
+    </div>
+    
+    <div class="card-body-img">
+        <span class="meta-img">PNG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial UTC</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato PNG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 3.png" class="btn-abrir-img">
+             Ver y Descargar Imagen
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="card-img-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 4.png" alt="Portada">
+        <div class="badge-img">IMG</div>
+    </div>
+    
+    <div class="card-body-img">
+        <span class="meta-img">PNG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial UTC</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato PNG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 4.png" class="btn-abrir-img">
+             Ver y Descargar Imagen
+        </a>
+    </div>
+</div>
+
+
+
+
+
+<div class="card-img-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 5.png" alt="Portada">
+        <div class="badge-img">IMG</div>
+    </div>
+    
+    <div class="card-body-img">
+        <span class="meta-img">PNG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial UTC</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato PNG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 5.png" class="btn-abrir-img">
+             Ver y Descargar Imagen
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="card-img-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 6.png" alt="Portada">
+        <div class="badge-img">IMG</div>
+    </div>
+    
+    <div class="card-body-img">
+        <span class="meta-img">PNG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial UTC</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato PNG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 6.png" class="btn-abrir-img">
+             Ver y Descargar Imagen
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="card-img-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 7.png" alt="Portada">
+        <div class="badge-img">IMG</div>
+    </div>
+    
+    <div class="card-body-img">
+        <span class="meta-img">PNG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial UTC</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato PNG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 7.png" class="btn-abrir-img">
+             Ver y Descargar Imagen
+        </a>
+    </div>
+</div>
+
+
+
+<div class="card-img-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 8.png" alt="Portada">
+        <div class="badge-img">IMG</div>
+    </div>
+    
+    <div class="card-body-img">
+        <span class="meta-img">PNG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial UTC</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato PNG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 8.png" class="btn-abrir-img">
+             Ver y Descargar Imagen
+        </a>
+    </div>
+</div>
+
+
+
+<div class="card-img-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 9.png" alt="Portada">
+        <div class="badge-img">IMG</div>
+    </div>
+    
+    <div class="card-body-img">
+        <span class="meta-img">PNG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial UTC</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato PNG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 9.png" class="btn-abrir-img">
+             Ver y Descargar Imagen
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="card-img-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 10.png" alt="Portada">
+        <div class="badge-img">IMG</div>
+    </div>
+    
+    <div class="card-body-img">
+        <span class="meta-img">PNG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial UTC</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato PNG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 10.png" class="btn-abrir-img">
+             Ver y Descargar Imagen
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="card-img-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 11.png" alt="Portada">
+        <div class="badge-img">IMG</div>
+    </div>
+    
+    <div class="card-body-img">
+        <span class="meta-img">PNG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial UTC</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato PNG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 11.png" class="btn-abrir-img">
+             Ver y Descargar Imagen
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="card-img-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 12.png" alt="Portada">
+        <div class="badge-img">IMG</div>
+    </div>
+    
+    <div class="card-body-img">
+        <span class="meta-img">PNG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial UTC</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato PNG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 12.png" class="btn-abrir-img">
+             Ver y Descargar Imagen
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="card-img-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 13.png" alt="Portada">
+        <div class="badge-img">IMG</div>
+    </div>
+    
+    <div class="card-body-img">
+        <span class="meta-img">PNG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial UTC</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato PNG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 13.png" class="btn-abrir-img">
+             Ver y Descargar Imagen
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="card-img-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 14.png" alt="Portada">
+        <div class="badge-img">IMG</div>
+    </div>
+    
+    <div class="card-body-img">
+        <span class="meta-img">PNG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial UTC</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato PNG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 14.png" class="btn-abrir-img">
+             Ver y Descargar Imagen
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="card-img-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 15.png" alt="Portada">
+        <div class="badge-img">IMG</div>
+    </div>
+    
+    <div class="card-body-img">
+        <span class="meta-img">PNG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial UTC</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato PNG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 15.png" class="btn-abrir-img">
+             Ver y Descargar Imagen
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="card-img-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 16.png" alt="Portada">
+        <div class="badge-img">IMG</div>
+    </div>
+    
+    <div class="card-body-img">
+        <span class="meta-img">PNG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial UTC</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato PNG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 16.png" class="btn-abrir-img">
+             Ver y Descargar Imagen
+        </a>
+    </div>
+</div>
+
+
+
+
+
+<div class="card-img-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 17.png" alt="Portada">
+        <div class="badge-img">IMG</div>
+    </div>
+    
+    <div class="card-body-img">
+        <span class="meta-img">PNG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial UTC</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato PNG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 17.png" class="btn-abrir-img">
+             Ver y Descargar Imagen
+        </a>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="card-img-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 18.png" alt="Portada">
+        <div class="badge-img">IMG</div>
+    </div>
+    
+    <div class="card-body-img">
+        <span class="meta-img">PNG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial UTC</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato PNG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 18.png" class="btn-abrir-img">
+             Ver y Descargar Imagen
+        </a>
+    </div>
+</div>
+
+
+
+
+<div class="card-img-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 19.png" alt="Portada">
+        <div class="badge-img">IMG</div>
+    </div>
+    
+    <div class="card-body-img">
+        <span class="meta-img">PNG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial UTC</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato PNG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/UTC/UTC 19.png" class="btn-abrir-img">
+             Ver y Descargar Imagen
+        </a>
+    </div>
+</div>
+
+<div id="imgModalOverlay" class="overlay-img-visor">
+    <div class="contenido-img-visor">
+        <div class="header-img-visor">
+            <span id="cerrarVentanaImg" class="cerrar-img">&times;</span>
+            <div class="acciones-header">
+                <a id="btnDescargarImg" href="#" download class="btn-descargar-img">Descargar Imagen</a>
+            </div>
+        </div>
+        <div class="cuerpo-visor-img">
+            <img id="visorImgElemento" src="" alt="Vista Previa">
+        </div>
+    </div>
+    </div>
+
+    
+<h2>FORMATOS FHIS</h2>
+
+
+<div id="imgModalOverlay-jpg" class="overlay-img-visor">
+    <div class="contenido-img-visor-jpg">
+        <div class="header-img-visor-jpg">
+            <span id="cerrarVentanaImg-jpg" class="cerrar-img">&times;</span>
+            <div class="acciones-header">
+                <a id="btnDescargarImg-jpg" href="#" download class="btn-descargar-img-jpg">Descargar Imagen</a>
+            </div>
+        </div>
+        <div class="cuerpo-visor-img-jpg">
+            <img id="visorImgElemento-jpg" src="" alt="Vista Previa">
+        </div>
+    </div>
+</div>
+
+
+<div class="card-jpg-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/GOB/GOB 1.jpg" alt="Portada">
+        <div class="badge-jpg">JPG</div>
+    </div>
+    <div class="card-body-img">
+        <span class="meta-jpg">JPG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial FHIS</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato JPG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/GOB/GOB 1.jpg" class="btn-abrir-img btn-abrir-jpg">Ver y Descargar Imagen</a>
+    </div>
+</div>
+
+
+
+<div class="card-jpg-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/GOB/GOB 2.jpg" alt="Portada">
+        <div class="badge-jpg">JPG</div>
+    </div>
+    <div class="card-body-img">
+        <span class="meta-jpg">JPG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial FHIS</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato JPG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/GOB/GOB 2.jpg" class="btn-abrir-img btn-abrir-jpg">Ver y Descargar Imagen</a>
+    </div>
+</div>
+
+
+
+<div class="card-jpg-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/GOB/GOB 3.jpg" alt="Portada">
+        <div class="badge-jpg">JPG</div>
+    </div>
+    <div class="card-body-img">
+        <span class="meta-jpg">JPG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial FHIS</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato JPG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/GOB/GOB 3.jpg" class="btn-abrir-img btn-abrir-jpg">Ver y Descargar Imagen</a>
+    </div>
+</div>
+
+
+
+
+<div class="card-jpg-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/GOB/GOB 4.jpg" alt="Portada">
+        <div class="badge-jpg">JPG</div>
+    </div>
+    <div class="card-body-img">
+        <span class="meta-jpg">JPG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial FHIS</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato JPG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/GOB/GOB 4.jpg" class="btn-abrir-img btn-abrir-jpg">Ver y Descargar Imagen</a>
+    </div>
+</div>
+
+
+
+<div class="card-jpg-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/GOB/GOB 5.jpg" alt="Portada">
+        <div class="badge-jpg">JPG</div>
+    </div>
+    <div class="card-body-img">
+        <span class="meta-jpg">JPG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial FHIS</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato JPG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/GOB/GOB 5.jpg" class="btn-abrir-img btn-abrir-jpg">Ver y Descargar Imagen</a>
+    </div>
+</div>
+
+
+
+<div class="card-jpg-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/GOB/GOB 6.jpg" alt="Portada">
+        <div class="badge-jpg">JPG</div>
+    </div>
+    <div class="card-body-img">
+        <span class="meta-jpg">JPG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial FHIS</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato JPG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/GOB/GOB 6.jpg" class="btn-abrir-img btn-abrir-jpg">Ver y Descargar Imagen</a>
+    </div>
+</div>
+
+
+
+<div class="card-jpg-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/GOB/GOB 7.jpg" alt="Portada">
+        <div class="badge-jpg">JPG</div>
+    </div>
+    <div class="card-body-img">
+        <span class="meta-jpg">JPG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial FHIS</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato JPG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/GOB/GOB 7.jpg" class="btn-abrir-img btn-abrir-jpg">Ver y Descargar Imagen</a>
+    </div>
+</div>
+
+
+
+<div class="card-jpg-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/GOB/GOB 8.jpg" alt="Portada">
+        <div class="badge-jpg">JPG</div>
+    </div>
+    <div class="card-body-img">
+        <span class="meta-jpg">JPG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial FHIS</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato JPG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/GOB/GOB 8.jpg" class="btn-abrir-img btn-abrir-jpg">Ver y Descargar Imagen</a>
+    </div>
+</div>
+
+
+
+
+<div class="card-jpg-institucional">
+    <div class="card-header-img">
+        <img src="ARCHIVOS/FORMATOS FHIS/Logos/GOB/GOB 9.jpg" alt="Portada">
+        <div class="badge-jpg">JPG</div>
+    </div>
+    <div class="card-body-img">
+        <span class="meta-jpg">JPG • ALTA RESOLUCIÓN</span>
+        <h3>Logotipo Oficial FHIS</h3>
+        <p>Previsualización del logo institucional para descarga directa en formato JPG.</p>
+    </div>
+    <div class="card-footer-img">
+        <a href="ARCHIVOS/FORMATOS FHIS/Logos/GOB/GOB 9.jpg" class="btn-abrir-img btn-abrir-jpg">Ver y Descargar Imagen</a>
+    </div>
+</div>
+
+
+
+
+</body>
+
+
+<script>
+(function() {
+    const modal = document.getElementById("pdfModal");
+    const visor = document.getElementById("visorPdf");
+    const btnBajar = document.getElementById("btnDescargarPdf");
+    const btnCerrar = document.getElementById("cerrarPdfX") || document.querySelector(".cerrar-ventana");
+
+    document.querySelectorAll('.btn-abrir-pdf').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const ruta = this.getAttribute('href');
+            visor.src = ruta;
+            if(btnBajar) btnBajar.href = ruta;
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    function cerrarPDF() {
+        modal.style.display = "none";
+        visor.src = "";
+        document.body.style.overflow = "auto";
+    }
+
+    if(btnCerrar) btnCerrar.onclick = cerrarPDF;
+    window.addEventListener('click', (e) => { if (e.target == modal) cerrarPDF(); });
+})();
+</script>
+
+
+
+
+<script>
+(function() {
+    const modal = document.getElementById("modalWord");
+    const visor = document.getElementById("visorWordIframe");
+    const btnBajar = document.getElementById("descargaWordLink");
+    const btnCerrar = document.getElementById("btnCerrarWord");
+
+    document.querySelectorAll('.btn-abrir-word').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const rutaVista = this.getAttribute('href');
+            let rutaDescarga = this.getAttribute('data-word');
+            
+            if (rutaDescarga) rutaDescarga = rutaDescarga.replace(/ /g, "%20");
+
+            visor.src = rutaVista;
+            btnBajar.href = rutaDescarga;
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    function cerrarWord() {
+        modal.style.display = "none";
+        visor.src = "";
+        document.body.style.overflow = "auto";
+    }
+
+    if(btnCerrar) btnCerrar.onclick = cerrarWord;
+    window.addEventListener('click', (e) => { if (e.target == modal) cerrarWord(); });
+})();
+</script>
+
+
+
+<script>
+(function() {
+    const modal = document.getElementById("imgModalOverlay");
+    const visor = document.getElementById("visorImgElemento");
+    const btnBajar = document.getElementById("btnDescargarImg");
+    const btnCerrar = document.getElementById("cerrarVentanaImg");
+
+    document.querySelectorAll('.btn-abrir-img:not(.btn-abrir-jpg)').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const ruta = this.getAttribute('href');
+            visor.src = ruta;
+            btnBajar.href = ruta;
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    function cerrarPNG() {
+        modal.style.display = "none";
+        visor.src = "";
+        document.body.style.overflow = "auto";
+    }
+
+    if(btnCerrar) btnCerrar.onclick = cerrarPNG;
+    window.addEventListener('click', (e) => { if (e.target == modal) cerrarPNG(); });
+})();
+</script>
+
+
+
+<script>
+(function() {
+    const modal = document.getElementById("imgModalOverlay");
+    const visor = document.getElementById("visorImgElemento");
+    const btnBajar = document.getElementById("btnDescargarImg");
+    const btnCerrar = document.getElementById("cerrarVentanaImg");
+
+    document.querySelectorAll('.btn-abrir-img:not(.btn-abrir-jpg)').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const ruta = this.getAttribute('href');
+            visor.src = ruta;
+            btnBajar.href = ruta;
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    function cerrarPNG() {
+        modal.style.display = "none";
+        visor.src = "";
+        document.body.style.overflow = "auto";
+    }
+
+    if(btnCerrar) btnCerrar.onclick = cerrarPNG;
+    window.addEventListener('click', (e) => { if (e.target == modal) cerrarPNG(); });
+})();
+</script>
+
+
+
+<script>
+(function() {
+    const modal = document.getElementById("imgModalOverlay-jpg");
+    const visor = document.getElementById("visorImgElemento-jpg");
+    const btnBajar = document.getElementById("btnDescargarImg-jpg");
+    const btnCerrar = document.getElementById("cerrarVentanaImg-jpg");
+
+    document.querySelectorAll('.btn-abrir-jpg').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const ruta = this.getAttribute('href');
+            visor.src = ruta;
+            btnBajar.href = ruta;
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    function cerrarJPG() {
+        modal.style.display = "none";
+        visor.src = "";
+        document.body.style.overflow = "auto";
+    }
+
+    if(btnCerrar) btnCerrar.onclick = cerrarJPG;
+    window.addEventListener('click', (e) => { if (e.target == modal) cerrarJPG(); });
+})();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const loader = document.querySelector('.loader-css');
+        const barra = document.querySelector('.barra-carga');
+        const porcentaje = document.querySelector('.porcentaje');
+        let progreso = 0;
+
+        // Función para actualizar visualmente
+        function actualizarCarga(valor) {
+            progreso = valor;
+            barra.style.width = progreso + '%';
+            porcentaje.style.setProperty('--num', progreso);
+        }
+
+        // 1. Simulación inicial de carga (para que el usuario vea movimiento)
+        let intervaloInicial = setInterval(() => {
+            if (progreso < 85) { // Sube rápido hasta 85%
+                actualizarCarga(progreso + 1);
+            }
+        }, 30); // Velocidad del conteo inicial
+
+        // 2. El evento REAL: Cuando TODO (imágenes, mapas, scripts) terminó de cargar
+        window.addEventListener('load', function() {
+            clearInterval(intervaloInicial); // Detenemos la simulación
+            actualizarCarga(100); // Saltamos al 100%
+
+            // Esperamos un momento para que el usuario vea el "100%" y ocultamos
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+            }, 600);
+        });
+    });
+</script>
+
+
+
+
+
+<script>
+// 1. Función para abrir y cerrar
+function alternarBarra() {
+    const wrapper = document.getElementById('searchWrapper');
+    const input = document.getElementById('searchBar');
+    
+    wrapper.classList.toggle('active');
+    
+    if (wrapper.classList.contains('active')) {
+        input.focus();
+    }
+}
+
+// 2. Función para detectar la tecla Enter
+function verificarEnter(event) {
+    if (event.key === 'Enter') {
+        const texto = event.target.value.trim();
+        if (texto.length > 0) {
+            buscarAhora(texto);
+        }
+    }
+}
+
+// 3. La lógica de búsqueda
+function buscarAhora(texto) {
+    const statusLabel = document.getElementById('searchStatus');
+    
+    // Limpiar resaltados anteriores
+    document.querySelectorAll('.resaltado').forEach(span => {
+        span.outerHTML = span.innerText;
+    });
+
+    const regex = new RegExp(`(${texto})`, 'gi');
+    let encontrado = false;
+
+    // Función interna para buscar
+    function recorrer(nodo) {
+        if (nodo.nodeType === 3) {
+            if (nodo.nodeValue.match(regex)) {
+                const span = document.createElement('span');
+                span.innerHTML = nodo.nodeValue.replace(regex, '<span class="resaltado">$1</span>');
+                nodo.parentNode.replaceChild(span, nodo);
+                encontrado = true;
+            }
+        } else if (nodo.nodeType === 1 && !/(script|style|nav|header)/i.test(nodo.tagName)) {
+            for (let i = 0; i < nodo.childNodes.length; i++) {
+                recorrer(nodo.childNodes[i]);
+            }
+        }
+    }
+
+    recorrer(document.body);
+
+    if (encontrado) {
+        const primero = document.querySelector('.resaltado');
+        primero.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        statusLabel.style.display = 'none';
+    } else {
+        statusLabel.innerText = `"${texto}" no se encuentra en esta página.`;
+        statusLabel.style.display = 'block';
+        setTimeout(() => { statusLabel.style.display = 'none'; }, 1000);
+    }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<footer>
+
+<a href="#inicio" id="btn-volver-arriba">
+↑
+</a>
+
+<section>
+        <div class="info-bar">
+    <div class="info-item">
+        <div class="info-icon">📍</div> <div class="info-text">
+            <h3>¿Dónde estamos?</h3>
+            <p>Centro Cívico Gubernamental José Cecilio Del Valle, Torre II</p>
+        </div>
+    </div>
+
+    <div class="info-item">
+        <div class="info-icon">📞</div>
+        <div class="info-text">
+            <h3>Llámenos</h3>
+            <p>(504) 2242-8131</p>
+        </div>
+    </div>
+
+    <div class="info-item">
+        <div class="info-icon">🕒</div>
+        <div class="info-text">
+            <h3>Horario</h3>
+            <p>Lun-Vie: 9:00am - 5:00pm</p>
+        </div>
+    </div>
+</div>
+
+</section>
+
+</footer>
+
+
+</html>
