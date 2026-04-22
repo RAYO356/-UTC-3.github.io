@@ -797,9 +797,15 @@
     document.querySelectorAll('.btn-abrir-pdf').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
-            const ruta = this.getAttribute('href');
-            visor.src = ruta;
-            if(btnBajar) btnBajar.href = ruta;
+            // 1. Obtenemos la ruta relativa
+            const rutaRelativa = this.getAttribute('href');
+            // 2. Construimos la URL completa necesaria para Google
+            const urlCompleta = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/') + rutaRelativa;
+            
+            // 3. Cargamos a través del visor de Google Docs
+            visor.src = "https://docs.google.com/viewer?url=" + encodeURIComponent(urlCompleta) + "&embedded=true";
+            
+            if(btnBajar) btnBajar.href = rutaRelativa;
             modal.style.display = "block";
             document.body.style.overflow = "hidden";
         });
@@ -851,7 +857,43 @@
     window.addEventListener('click', (e) => { if (e.target == modal) cerrarWord(); });
 })();
 </script>
+<script>
+(function() {
+    const modal = document.getElementById("modalWord");
+    const visor = document.getElementById("visorWordIframe");
+    const btnBajar = document.getElementById("descargaWordLink");
+    const btnCerrar = document.getElementById("btnCerrarWord");
 
+    document.querySelectorAll('.btn-abrir-word').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const rutaVista = this.getAttribute('href');
+            let rutaDescarga = this.getAttribute('data-word');
+            
+            if (rutaDescarga) rutaDescarga = rutaDescarga.replace(/ /g, "%20");
+
+            // Construimos URL completa para la vista previa
+            const urlCompletaVista = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/') + rutaVista;
+            
+            // Forzamos el visor de Google
+            visor.src = "https://docs.google.com/viewer?url=" + encodeURIComponent(urlCompletaVista) + "&embedded=true";
+            
+            btnBajar.href = rutaDescarga;
+            modal.style.display = "block";
+            document.body.style.overflow = "hidden";
+        });
+    });
+
+    function cerrarWord() {
+        modal.style.display = "none";
+        visor.src = "";
+        document.body.style.overflow = "auto";
+    }
+
+    if(btnCerrar) btnCerrar.onclick = cerrarWord;
+    window.addEventListener('click', (e) => { if (e.target == modal) cerrarWord(); });
+})();
+</script>
 
 
 <script>
