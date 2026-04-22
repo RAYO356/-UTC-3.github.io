@@ -788,81 +788,64 @@
 
 <script>
 (function() {
-    const modal = document.getElementById("pdfModal");
-    const visor = document.getElementById("visorPdf");
-    const btnBajar = document.getElementById("btnDescargarPdf");
-    const btnCerrar = document.getElementById("cerrarPdfX") || document.querySelector(".cerrar-ventana");
+    // Función para manejar PDF
+    const pdfModal = document.getElementById("pdfModal");
+    const visorPdf = document.getElementById("visorPdf");
+    const btnDescargarPdf = document.getElementById("btnDescargar"); // ID corregido según tu HTML
 
     document.querySelectorAll('.btn-abrir-pdf').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
-            const rutaRelativa = this.getAttribute('href');
-            const urlCompleta = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/') + rutaRelativa;
+            const ruta = this.getAttribute('href');
             
-            visor.src = "https://docs.google.com/viewer?url=" + encodeURIComponent(urlCompleta) + "&embedded=true";
+            // Forzamos la ruta absoluta para que GitHub no se pierda
+            const urlAbs = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/') + ruta;
             
-            if(btnBajar) {
-                btnBajar.href = rutaRelativa;
-                // ESTO ARREGLA LA DESCARGA: Toma el nombre del archivo de la ruta
-                btnBajar.setAttribute('download', rutaRelativa.split('/').pop());
-            }
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden";
+            // Visor de Google para que se vea en el teléfono
+            visorPdf.src = "https://docs.google.com/viewer?url=" + encodeURIComponent(urlAbs) + "&embedded=true";
+            
+            // CONFIGURACIÓN DE DESCARGA REAL
+            btnDescargarPdf.href = ruta;
+            btnDescargarPdf.setAttribute('download', ruta.split('/').pop());
+            
+            pdfModal.style.display = "block";
         });
     });
 
-    function cerrarPDF() {
-        modal.style.display = "none";
-        visor.src = "";
-        document.body.style.overflow = "auto";
-    }
-
-    if(btnCerrar) btnCerrar.onclick = cerrarPDF;
-    window.addEventListener('click', (e) => { if (e.target == modal) cerrarPDF(); });
-})();
-</script>
-
-
-<script>
-(function() {
-    const modal = document.getElementById("modalWord");
-    const visor = document.getElementById("visorWordIframe");
-    const btnBajar = document.getElementById("descargaWordLink");
-    const btnCerrar = document.getElementById("btnCerrarWord");
+    // Función para manejar WORD
+    const wordModal = document.getElementById("modalWord");
+    const visorWord = document.getElementById("visorWordIframe");
+    const btnDescargarWord = document.getElementById("descargaWordLink");
 
     document.querySelectorAll('.btn-abrir-word').forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
             const rutaVista = this.getAttribute('href');
-            let rutaDescarga = this.getAttribute('data-word');
+            const rutaDescarga = this.getAttribute('data-word');
             
-            if (rutaDescarga) {
-                rutaDescarga = rutaDescarga.replace(/ /g, "%20");
-                btnBajar.href = rutaDescarga;
-                // ESTO ARREGLA LA DESCARGA
-                btnBajar.setAttribute('download', rutaDescarga.split('/').pop());
-            }
-
-            // Mantenemos el visor como ya te gustaba
-            const urlCompletaVista = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/') + rutaVista;
-            visor.src = "https://docs.google.com/viewer?url=" + encodeURIComponent(urlCompletaVista) + "&embedded=true";
+            const urlAbsVista = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/') + rutaVista;
+            visorWord.src = "https://docs.google.com/viewer?url=" + encodeURIComponent(urlAbsVista) + "&embedded=true";
             
-            modal.style.display = "block";
-            document.body.style.overflow = "hidden";
+            // CONFIGURACIÓN DE DESCARGA REAL
+            btnDescargarWord.href = rutaDescarga;
+            btnDescargarWord.setAttribute('download', rutaDescarga.split('/').pop());
+            
+            wordModal.style.display = "block";
         });
     });
 
-    function cerrarWord() {
-        modal.style.display = "none";
-        visor.src = "";
-        document.body.style.overflow = "auto";
-    }
-
-    if(btnCerrar) btnCerrar.onclick = cerrarWord;
-    window.addEventListener('click', (e) => { if (e.target == modal) cerrarWord(); });
+    // Cierre general
+    document.addEventListener('click', function(e) {
+        if (e.target.classList.contains('cerrar-ventana') || e.target.id === 'btnCerrarWord' || e.target.classList.contains('ventana-flotante-overlay')) {
+            pdfModal.style.display = "none";
+            wordModal.style.display = "none";
+            visorPdf.src = "";
+            visorWord.src = "";
+            document.body.style.overflow = "auto";
+        }
+    });
 })();
 </script>
-
 
     
 <script>
