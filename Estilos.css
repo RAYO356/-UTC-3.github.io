@@ -235,7 +235,13 @@ body {
 .cuerpo-visor { flex-grow: 1; background: white; }
 #visorPdf { width: 100%; height: 100%; }
 
-
+@media (max-width: 768px) {
+    #visorPdf, #visorWordIframe {
+        min-height: 500px; /* Obliga al móvil a darle altura */
+        width: 100%;
+        display: block;
+    }
+}
 
 
 
